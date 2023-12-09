@@ -1,5 +1,6 @@
 package com.example.spring_mvc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Sale {
 
     @ManyToOne
     @JoinColumn(name = "prodID")
+    @JsonIgnore
     private Product product;
 
     private String salesmanName;

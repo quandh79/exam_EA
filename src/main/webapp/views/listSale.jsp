@@ -1,49 +1,35 @@
+<!-- /WEB-INF/views/sale-list.jsp -->
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-
-    <!-- Add Bootstrap CSS link -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sale List</title>
 </head>
 <body>
-
-<div class="container mt-5">
-    <h2>Product List</h2>
-    <table class="table table-bordered">
-        <thead class="thead-dark">
+<h2>Sale List</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Sale ID</th>
+        <th>Salesman ID</th>
+        <th>Product Name</th>
+        <th>Salesman Name</th>
+        <th>Date of Sale</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="sale" items="${sales}">
         <tr>
-            <th scope="col">Product ID</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Date of Manufacture</th>
-            <th scope="col">Price</th>
+            <td>${sale.slNo}</td>
+            <td>${sale.salesmanID}</td>
+            <td>${sale.product.prodName}</td>
+            <td>${sale.salesmanName}</td>
+            <td>${sale.dos}</td>
         </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="product" items="${products}">
-            <tr>
-                <td>${product.prodID}</td>
-                <td>${product.prodName}</td>
-                <td>${product.description}</td>
-                <td><fmt:formatDate value="${product.dateOfManf}" pattern="yyyy-MM-dd" /></td>
-                <td>${product.price}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
-
-<!-- Add Bootstrap JS and Popper.js scripts -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>

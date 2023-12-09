@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,4 +21,6 @@ public class Product {
     private Date dateOfManf;
 
     private double price;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Sale> sales;
 }
