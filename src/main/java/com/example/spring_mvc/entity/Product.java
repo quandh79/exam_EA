@@ -1,0 +1,23 @@
+package com.example.spring_mvc.entity;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Data
+@Table(name = "Product")
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long prodID;
+
+    private String prodName;
+    private String description;
+
+    @Temporal(TemporalType.DATE)
+    private Date dateOfManf;
+
+    private double price;
+}
